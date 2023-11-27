@@ -1,0 +1,16 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text horizontally */
+    font-family: 'YourFontName', sans-serif;
+}
+h1 {
+    color: #ffffff;
+    font-size: 4em; /* Adjust the font size as needed */
+}

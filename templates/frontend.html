@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        @font-face {
+            font-family: 'YourFontName'; /* Choose a name for your font */
+            src: url('{{ url_for('static', filename='your_font.ttf') }}') format('truetype');
+            /* Add more src entries if you have different font file formats */
+        }
+
+        body {
+            font-family: 'YourFontName', sans-serif; /* Use the custom font in the body */
+            /* Other styling for the body */
+        }
+
+        h1 {
+            color:black; /* Set the text color to white, or any other color you prefer */
+        }
+    </style>
+</head>
+<body>
+    <h1>CartoonifyMe!</h1>
+    <button id="takePictureBtn">Take Picture</button>
+
+
+
+
+
+
+    
+    <script>
+        // JavaScript code for interacting with the camera
+        document.addEventListener('DOMContentLoaded', function () {
+            const takePictureBtn = document.getElementById('takePictureBtn');
+
+            takePictureBtn.addEventListener('click', function () {
+                // Open the camera or initiate the process to capture an image
+                // Add your camera capture logic here
+                alert('Opening camera and capturing picture!');
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
