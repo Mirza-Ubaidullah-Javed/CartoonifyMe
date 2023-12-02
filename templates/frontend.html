@@ -24,26 +24,68 @@
 </head>
 <body>
     <h1>CartoonifyMe!</h1>
-    <button id="takePictureBtn">Take Picture</button>
+
+
+    <style>
+        /* Your existing CSS styles here */
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #uploadInput {
+            display: none;
+        }
+    </style>
 
 
 
 
 
 
-    
-    <script>
-        // JavaScript code for interacting with the camera
-        document.addEventListener('DOMContentLoaded', function () {
-            const takePictureBtn = document.getElementById('takePictureBtn');
+<button class="custom-file-upload" onclick="document.getElementById('uploadInput').click();">
+    Upload Picture
+</button>
 
-            takePictureBtn.addEventListener('click', function () {
-                // Open the camera or initiate the process to capture an image
-                // Add your camera capture logic here
-                alert('Opening camera and capturing picture!');
-            });
+<input type="file" id="uploadInput" accept="image/*" style="display:none;">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const uploadInput = document.getElementById('uploadInput');
+
+        uploadInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                // Create a FormData object to send the file to the server
+                const formData = new FormData();
+                formData.append('image', file);
+
+                // Use fetch to send the file to the server
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Server response, you can handle it as needed
+                    console.log('Server Response:', data);
+
+                    // Redirect to a different HTML page
+                    window.location.href = '/success';
+                })
+                .catch(error => {
+                    console.error('Error uploading file:', error);
+                });
+            }
         });
-    </script>
+    });
+</script>
 
 
 
