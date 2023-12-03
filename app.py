@@ -56,7 +56,7 @@ def cartoonify_img(input_img,value):
     kernel = np.ones((3, 3), np.uint8)
 
     # Perform erosion
-    smooth_gray_frame_edges = cv2.erode(smooth_gray_frame_edges, kernel, iterations=1)
+    #smooth_gray_frame_edges = cv2.erode(smooth_gray_frame_edges, kernel, iterations=1)
 
 
     if value == 1:
